@@ -5,13 +5,13 @@ homepage: https://github.com/bikram0000/flutter_desktop_sleep/tree/master
 repository: https://github.com/bikram0000/flutter_desktop_sleep/tree/master
 
 environment:
-  sdk: ">=2.17.6 <3.0.0"
+  sdk: ">=2.19.6 <4.0.0"
   flutter: ">=2.5.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  plugin_platform_interface: ^2.1.2
+  plugin_platform_interface: ^2.1.7
 
 dev_dependencies:
   flutter_test:

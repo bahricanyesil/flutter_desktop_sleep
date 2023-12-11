@@ -11,7 +11,6 @@ public class FlutterDesktopSleepPlugin: NSObject, FlutterPlugin {
     registrar.addMethodCallDelegate(instance, channel: channel)
   }
 
-
     public func applicationShouldTerminate(_ controller: FlutterViewController) -> NSApplication.TerminateReply {       
         let notificationChannel = FlutterMethodChannel(name: "flutter_desktop_sleep",
                                                        binaryMessenger: controller.engine.binaryMessenger)
@@ -30,7 +29,7 @@ public class FlutterDesktopSleepPlugin: NSObject, FlutterPlugin {
         case kAEShutDown, kAEShowShutdownDialog:
             NSLog("Shutdown")
             notificationChannel.invokeMethod("onWindowsSleep", arguments: "terminate_app")
-            return .terminateLater
+            return .terminateNow
         case 0:
             // `enumCodeValue` docs:
             //
@@ -38,11 +37,11 @@ public class FlutterDesktopSleepPlugin: NSObject, FlutterPlugin {
             //    or 0 if an error occurs.
             NSLog("We don't know")
             notificationChannel.invokeMethod("onWindowsSleep", arguments: "terminate_app")
-            return .terminateLater
+            return .terminateNow
         default:
             NSLog("Cmd-Q, Quit menu item, ...")
             notificationChannel.invokeMethod("onWindowsSleep", arguments: "terminate_app")
-            return .terminateLater
+            return .terminateNow
         }
     }
 
